@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const {database} = require('./appConfigurer');
+const {database} = require('./appConfiguration');
 
 const dbConnect = async () => {
   const mongoConfig = {
