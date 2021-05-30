@@ -7,15 +7,15 @@ const dbConnect = require('./configuration/database');
 /** Initialize Express App */
 const app = express();
 
+/** Database Connecting */
 dbConnect();
 
-const PORT = application.port || 5000;
-
-app.get('/', (req, res) =>
-  res.json({success: true, msg: 'AWS Elastic Transcoder Implementation.'})
-);
+/** Calling Routes */
+app.use('/', require('./routes/api'));
 
 /** Creating a Server */
+const PORT = application.port || 5000;
+
 const server = app.listen(PORT, () => {
   console.log(
     '\nServer running at ' +
