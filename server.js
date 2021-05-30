@@ -2,9 +2,12 @@ require('colors');
 const express = require('express');
 require('dotenv').config({path: './configuration/.env'});
 const {application} = require('./configuration/appConfigurer');
+const dbConnect = require('./configuration/database');
 
 /** Initialize Express App */
 const app = express();
+
+dbConnect();
 
 const PORT = application.port || 5000;
 
