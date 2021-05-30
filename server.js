@@ -1,5 +1,6 @@
 require('colors');
 const express = require('express');
+const fileUpload = require('express-fileupload');
 require('dotenv').config({path: './configuration/.env'});
 const {application} = require('./configuration/appConfigurer');
 const dbConnect = require('./configuration/database');
@@ -9,6 +10,11 @@ const app = express();
 
 /** Database Connecting */
 dbConnect();
+
+/** Middlewares */
+app.use(fileUpload());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 /** Calling Routes */
 app.use('/', require('./routes/api'));
