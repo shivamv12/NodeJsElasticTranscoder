@@ -1,8 +1,6 @@
 /**
  * @desc {} - App Environment Configuration
  */
-
-// const appConfigurer = () => {
 let appConfig = {
   application: {
     port: process.env.PORT || 5000,
@@ -41,8 +39,5 @@ switch (process.env.APP_ENV) {
     };
     break;
 }
-
-// return appConfig;
-// };
 
 module.exports = appConfig;
