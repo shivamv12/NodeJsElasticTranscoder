@@ -6,7 +6,7 @@ const {application} = require('./configuration/appConfigurer');
 /** Initialize Express App */
 const app = express();
 
-const PORT = application.PORT || 5000;
+const PORT = application.port || 5000;
 
 app.get('/', (req, res) =>
   res.json({success: true, msg: 'AWS Elastic Transcoder Implementation.'})
@@ -16,8 +16,8 @@ app.get('/', (req, res) =>
 const server = app.listen(PORT, () => {
   console.log(
     '\nServer running at ' +
-      `http://${application.HOST}:${PORT}/`.green.underline.bold +
-      ` in ${application.APP_ENV} mode!`
+      `http://${application.host}:${PORT}/`.green.underline.bold +
+      ` in ${application.env} mode!`
   );
 });
 
