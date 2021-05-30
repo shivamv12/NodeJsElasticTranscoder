@@ -2,8 +2,8 @@ require('colors');
 const express = require('express');
 const fileUpload = require('express-fileupload');
 require('dotenv').config({path: './configuration/.env'});
-const {application} = require('./configuration/appConfigurer');
-const dbConnect = require('./configuration/database');
+const {application} = require('./configuration/appConfiguration');
+const dbConnect = require('./configuration/databaseConfiguration');
 
 /** Initialize Express App */
 const app = express();
