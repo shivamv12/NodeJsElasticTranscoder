@@ -1,11 +1,12 @@
 require('colors');
 const express = require('express');
 require('dotenv').config({path: './configuration/.env'});
+const {application} = require('./configuration/appConfigurer');
 
 /** Initialize Express App */
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const PORT = application.PORT || 5000;
 
 app.get('/', (req, res) =>
   res.json({success: true, msg: 'AWS Elastic Transcoder Implementation.'})
@@ -15,8 +16,8 @@ app.get('/', (req, res) =>
 const server = app.listen(PORT, () => {
   console.log(
     '\nServer running at ' +
-      `http://${process.env.HOST}:${PORT}/`.green.underline.bold +
-      ` in ${process.env.APP_ENV} mode!`
+      `http://${application.HOST}:${PORT}/`.green.underline.bold +
+      ` in ${application.APP_ENV} mode!`
   );
 });
 
