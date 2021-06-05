@@ -5,7 +5,7 @@ const bullmq = require('../configuration/bullmqConfiguration');
  * @desc {} - Job to upload different versions of uploaded video.
  */
 const uploadVideoJob = async (payload) => {
-  const queue = bullmq();
+  const queue = await bullmq();
   queue.setMaxListeners(queue.getMaxListeners() + 1);
 
   queue.add('uploadVideo', payload, {
