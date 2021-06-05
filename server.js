@@ -1,4 +1,5 @@
 require('colors');
+const morgan = require('morgan');
 const express = require('express');
 const fileUpload = require('express-fileupload');
 require('dotenv').config({path: './configuration/.env'});
@@ -13,6 +14,7 @@ dbConnect();
 
 /** Middlewares */
 app.use(fileUpload());
+app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
