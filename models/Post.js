@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema(
   {
+    slug: {type: String},
     content: {type: String, trim: true, require: true},
     media: {type: String, trim: true, required: true},
     thumbnail: {type: String, trim: true},
