@@ -7,10 +7,10 @@ const appService = require('../services/appService');
  */
 const submitPost = async (req, res) => {
   try {
-    const body = {...req.body};
-    const media = req.files.media;
+    const {media} = req.files;
+    const {content} = req.body;
 
-    let response = await appService.submitPost(body, media);
+    const response = await appService.submitPost(content, media);
     if (!response)
       return res.status(422).json({
         success: false,
