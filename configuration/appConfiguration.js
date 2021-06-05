@@ -18,6 +18,7 @@ switch (process.env.APP_ENV) {
         password: process.env.PROD_DB_PASSWORD,
       },
       application: {
+        log: 'tiny',
         ...appConfig.application,
         env: process.env.APP_ENV || 'production',
       },
@@ -33,6 +34,7 @@ switch (process.env.APP_ENV) {
         password: process.env.DB_PASSWORD,
       },
       application: {
+        log: 'dev',
         ...appConfig.application,
         env: process.env.APP_ENV || 'development',
       },

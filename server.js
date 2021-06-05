@@ -1,29 +1,14 @@
-require('colors');
-const morgan = require('morgan');
-const express = require('express');
-const fileUpload = require('express-fileupload');
-require('dotenv').config({path: './configuration/.env'});
+const app = require('./app');
 const {application} = require('./configuration/appConfiguration');
 const dbConnect = require('./configuration/databaseConfiguration');
 
-/** Initialize Express App */
-const app = express();
-
-/** Database Connecting */
+/** Initialize Database Connection */
 dbConnect();
 
-/** Middlewares */
-app.use(fileUpload());
-app.use(morgan('tiny'));
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-
-/** Calling Routes */
-app.use('/', require('./routes/api'));
-
-/** Creating a Server */
+/** Assinging the PORT */
 const PORT = application.port || 5000;
 
+/** Creating a Server */
 const server = app.listen(PORT, () => {
   console.log(
     '\nServer running at ' +

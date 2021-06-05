@@ -1,3 +1,5 @@
+require('dotenv').config({path: './configuration/.env'});
+
 const transcoderConfig = {
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
