@@ -17,6 +17,8 @@ const dbConnect = async () => {
     `Database Connected: ` +
       `Ready State ${conn.connection.readyState}\n`.yellow
   );
+
+  mongoose.set('debug', false);
 };
 
 module.exports = dbConnect;
