@@ -1,6 +1,5 @@
 /**
- * @returns -
- * @desc {} Validates the input media file for certain parameters
+ * @desc {} - Validates the input media file for certain parameters
  */
 const mediaValidator = () => {
   return function (req, res, next) {

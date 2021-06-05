@@ -1,10 +1,9 @@
 const appService = require('../services/appService');
 
 /**
- * @param {*} req
- * @param {*} res
+ * @param {*} req, res
  * @returns {data, mesg}
- * @desc {} Method to handle incoming request to submit video
+ * @desc {} - Method to handle incoming request to submit video
  */
 const submitPost = async (req, res) => {
   try {

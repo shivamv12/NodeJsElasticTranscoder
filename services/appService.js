@@ -1,5 +1,6 @@
 const Post = require('../models/Post');
 const uploadFile = require('../utils/fileUploader');
+const uploadVideoJob = require('../jobs/uploadVideoJob');
 const mediaNameGenerator = require('../helpers/mediaNameGenerator');
 
 const submitPost = async (payload, media) => {
@@ -11,12 +12,13 @@ const submitPost = async (payload, media) => {
   /** Upload original video */
   await uploadFile(postData.media, media.data, media.mimetype);
 
-  /** Spin off redis job to upload different versions */
-  // uploadVideoJob({
-  //   data: media.data,
-  //   filename: res.file_name,
-  //   contentType: media.mimetype,
-  // });
+  /** Spinning off redis job to upload different versions */
+  uploadVideoJob({
+    media,
+    data: media.data,
+    filename: res.file_name,
+    contentType: media.mimetype,
+  });
 
   return postData;
 };
