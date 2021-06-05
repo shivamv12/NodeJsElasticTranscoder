@@ -3,7 +3,7 @@
  * @returns String (filename)
  */
 const mediaNameGenerator = (media_name) => {
-  let ext = media_name.split('.')[1];
+  let ext = media_name.split('.')[media_name.split('.').length - 1];
   let prefix = 'nodejs_elastic_transcoder_';
   return prefix + parseInt(Math.random() * 987654321) + '.' + ext;
 };
